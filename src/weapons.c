@@ -32,8 +32,10 @@ const ammo_data ammos[AMT_MAX] =
     /*  type       name            ac           dam   acc  mat        we  pr  ob */
     { AMT_STONE,   "pebble",       AMMO_SLING,     2,   1, IM_STONE, 100,  1, FALSE, },
     { AMT_SBULLET, "sling bullet", AMMO_SLING,     4,   2, IM_LEAD,   50,  3,  TRUE, },
-    { AMT_ARROW,   "arrow",        AMMO_BOW,       8,   3, IM_WOOD,   80,  5,  TRUE, },
-    { AMT_BOLT,    "bolt",         AMMO_CROSSBOW, 10,   4, IM_IRON,  100, 10, FALSE, },
+    { AMT_WARROW,  "wooden arrow", AMMO_BOW,       8,   4, IM_WOOD,   80,  5,  TRUE, },
+    { AMT_IBOLT,   "iron bolt",    AMMO_CROSSBOW, 10,   3, IM_IRON,  100, 10,  TRUE, },
+    { AMT_MARROW,  "mithril arrow",AMMO_BOW,      11,   6, IM_MITHRIL,80, 25,  TRUE, },
+    { AMT_SBOLT,   "steel bolt",   AMMO_CROSSBOW, 14,   4, IM_STEEL, 130, 30,  TRUE, },
 };
 
 const char *ammo_class_name[AMMO_MAX] =
@@ -48,28 +50,35 @@ const weapon_data weapons[WT_MAX] =
     /* weapon_t         name                         short name,       class          ammo      dam  acc  material    we     pr tw un ar ob th*/
     { WT_ODAGGER,       "orcish dagger",             "orc dagger",      WC_MELEE,     AMMO_MAX,  2,   3, IM_IRON,   850,     6, 0, 0, 1, 0, 1 },
     { WT_DAGGER,        "dagger",                    "dagger",          WC_MELEE,     AMMO_MAX,  3,   5, IM_IRON,   600,    10, 0, 0, 1, 1, 1 },
+    { WT_CLUB,          "cudgel",                    "club",            WC_MELEE,     AMMO_MAX,  4,   2, IM_WOOD,   750,    10, 0, 0, 1, 0, 0 },
     { WT_SLING,         "sling",                     "sling",          WC_RANGED,   AMMO_SLING,  1,   3, IM_CLOTH,  200,    15, 1, 0, 1, 1, 0 },
     { WT_OSHORTSWORD,   "orcish short sword",        "orc short sword", WC_MELEE,     AMMO_MAX,  5,   2, IM_IRON,  1350,    30, 0, 0, 1, 0, 0 },
     { WT_SHORTSWORD,    "short sword",               "short sword",     WC_MELEE,     AMMO_MAX,  6,   3, IM_IRON,  1000,    60, 0, 0, 1, 1, 0 },
     { WT_ESHORTSWORD,   "elven short sword",         "elf short sword", WC_MELEE,     AMMO_MAX,  7,   4, IM_WOOD,  1180,    68, 0, 0, 1, 0, 0 },
     { WT_OSPEAR,        "orcish spear",              "orc spear",       WC_MELEE,     AMMO_MAX,  8,   2, IM_IRON,  2100,    75, 0, 0, 1, 0, 1 },
+    { WT_AXE,           "hatchet",                   "axe",             WC_MELEE,     AMMO_MAX,  9,   2, IM_IRON,  2000,   100, 0, 0, 1, 1, 1 },
     { WT_SPEAR,         "spear",                     "spear",           WC_MELEE,     AMMO_MAX, 10,   3, IM_IRON,  1800,   120, 0, 0, 1, 1, 1 },
     { WT_ESPEAR,        "elven spear",               "elf spear",       WC_MELEE,     AMMO_MAX, 11,   4, IM_WOOD,  1600,   140, 0, 0, 1, 0, 1 },
     { WT_BOW,           "bow",                       "bow",            WC_RANGED,     AMMO_BOW,  3,   4, IM_WOOD,  1000,   220, 1, 0, 1, 1, 0 },
-    { WT_CLUB,          "heavy club",                "club",            WC_MELEE,     AMMO_MAX, 10,   2, IM_WOOD,  3500,    50, 0, 0, 1, 0, 0 },
     { WT_MACE,          "mace",                      "mace",            WC_MELEE,     AMMO_MAX, 12,   3, IM_IRON,  2600,   160, 0, 0, 1, 1, 0 },
+    { WT_SCYTHE,        "scythe",                    "scythe",          WC_MELEE,     AMMO_MAX, 13,   3, IM_IRON,  2400,   150, 1, 0, 1, 1, 0 },
     { WT_FLAIL,         "flail",                     "flail",           WC_MELEE,     AMMO_MAX, 14,   2, IM_IRON,  2900,   195, 1, 0, 1, 1, 0 },
-    { WT_BATTLEAXE,     "battle-axe",                "battle-axe",      WC_MELEE,     AMMO_MAX, 18,   2, IM_IRON,  2700,   350, 1, 0, 1, 1, 0 },
-    { WT_CROSSBOW,      "crossbow",                  "crossbow",       WC_RANGED, AMMO_CROSSBOW, 5,   3, IM_WOOD,  3500,   600, 1, 0, 1, 0, 0 },
-    { WT_LONGSWORD,     "longsword",                 "longsword",       WC_MELEE,     AMMO_MAX, 22,   3, IM_IRON,  1950,   550, 0, 0, 1, 1, 0 },
-    { WT_2SWORD,        "two-handed sword",          "2-handed sword",  WC_MELEE,     AMMO_MAX, 26,   4, IM_IRON,  3600,  1000, 1, 0, 1, 1, 0 },
+    { WT_LONGSWORD,     "long sword",                "longsword",       WC_MELEE,     AMMO_MAX, 15,   3, IM_IRON,  1950,   250, 0, 0, 1, 1, 0 },
+    { WT_WCLUB,         "war club",                  "war club",        WC_MELEE,     AMMO_MAX, 16,   2, IM_WOOD,  3500,   200, 0, 0, 1, 0, 0 },
+    { WT_CROSSBOW,      "crossbow",                  "crossbow",       WC_RANGED, AMMO_CROSSBOW, 5,   3, IM_WOOD,  3500,   600, 1, 0, 1, 1, 0 },
+    { WT_CKNIFE,        "crysknife",                 "crysknife",       WC_MELEE,     AMMO_MAX, 18,   5, IM_GLASS,  950,   400, 0, 0, 1, 0, 1 },
+    { WT_WHAMMER,       "war hammer",                "war hammer",      WC_MELEE,     AMMO_MAX, 20,   3, IM_IRON,  3200,   400, 1, 0, 1, 1, 0 },
+    { WT_BATTLEAXE,     "battle-axe",                "battle-axe",      WC_MELEE,     AMMO_MAX, 22,   2, IM_IRON,  3400,   600, 1, 0, 1, 1, 0 },
+    { WT_HALBERD,       "halberd",                   "halberd",         WC_MELEE,     AMMO_MAX, 24,   3, IM_IRON,  3900,   800, 1, 0, 1, 1, 0 },
+    { WT_2SWORD,        "two-handed sword",          "2H sword",        WC_MELEE,     AMMO_MAX, 26,   4, IM_IRON,  3600,  1000, 1, 0, 1, 1, 0 },
+    { WT_GSCLUB,        "giant spiked club",         "giant club",      WC_MELEE,     AMMO_MAX, 28,   2, IM_WOOD,  4200,  1600, 1, 0, 1, 0, 0 },
     { WT_SWORDSLASHING, "sword of slashing",         "slashing",        WC_MELEE,     AMMO_MAX, 30,   5, IM_STEEL, 2200,  6000, 0, 0, 1, 0, 0 },
     /* unique weapons */
     { WT_LANCEOFDEATH,  "lance of death",            "lance of death",  WC_MELEE,     AMMO_MAX, 20,   3, IM_WOOD,  2900, 65000, 1, 1, 1, 1, 0 },
-    { WT_VORPALBLADE,   "Vorpal blade",              "Vorpal blade",    WC_MELEE,     AMMO_MAX, 22,   3, IM_STEEL, 1600,  3800, 0, 1, 1, 0, 0 },
-    { WT_SLAYER,        "Slayer",                    "Slayer",          WC_MELEE,     AMMO_MAX, 30,   5, IM_STEEL, 1800,  6800, 0, 1, 0, 0, 0 },
-    { WT_SUNSWORD,      "Sunsword",                  "Sunsword",        WC_MELEE,     AMMO_MAX, 32,   6, IM_STEEL, 1800,  7000, 0, 1, 1, 0, 0 },
-    { WT_BESSMAN,       "Bessman's flailing hammer", "Bessman's",       WC_MELEE,     AMMO_MAX, 35,   6, IM_STEEL, 5800, 10000, 1, 1, 0, 0, 0 },
+    { WT_VORPALBLADE,   "vorpal knife",              "vorpal knife",    WC_MELEE,     AMMO_MAX, 22,   3, IM_MITHRIL,1600, 3800, 0, 1, 1, 0, 1 },
+    { WT_SLAYER,        "scythe of slaying",         "scythe of slaying",WC_MELEE,    AMMO_MAX, 30,   5, IM_STEEL, 1800,  6800, 1, 1, 1, 0, 0 },
+    { WT_SUNSWORD,      "Sunsword",                  "Sunsword",        WC_MELEE,     AMMO_MAX, 32,   6, IM_GOLD,  1800,  7000, 0, 1, 1, 0, 0 },
+    { WT_BESSMAN,       "Bessman's flailing hammer", "Bessman's",       WC_MELEE,     AMMO_MAX, 35,   6, IM_IRON,  5800, 10000, 1, 1, 0, 0, 0 },
 };
 
 /* static functions */
