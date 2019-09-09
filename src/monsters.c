@@ -300,8 +300,8 @@ monster_data_t monster_data[] = {
             { .type = ATT_WEAPON, .damage = DAM_PHYSICAL },
         }
     },
-    { /* MT_HELLHOUND */
-        .name = "hell hound", .glyph = 'h', .colour = LIGHTRED,
+    { /* MT_HELLLION */
+        .name = "hellion", .glyph = 'h', .colour = LIGHTRED,
         .exp = 35, .ac = 5, .hp_max = 16,
         .level = 4, .intelligence = 6, .speed = FAST, .size = SMALL,
         .flags = HEAD | RES_FIRE | RES_MAGIC,
@@ -738,7 +738,7 @@ monster_data_t monster_data[] = {
         .level = 1, .intelligence = 10, .speed = NORMAL, .size = MEDIUM,
         .flags = HEAD | HANDS,
         .attacks = {
-            { .type = ATT_SLAM, .base = 0, .damage = DAM_PHYSICAL },
+            { .type = ATT_WEAPON, .damage = DAM_PHYSICAL },
         }
     },
 };
@@ -863,7 +863,7 @@ monster *monster_new(monster_t type, position pos)
 
         case MT_TROLL:
             wpns[0] = WT_CLUB;
-            wpns[1] = WT_CLUB;
+            wpns[1] = WT_WCLUB;
             wpns[2] = WT_BATTLEAXE;
             break;
 
@@ -875,10 +875,15 @@ monster *monster_new(monster_t type, position pos)
 
         case MT_BUGBEAR:
         case MT_CENTAUR:
-        case MT_POLTERGEIST:
             wpns[0] = WT_MACE;
             wpns[1] = WT_FLAIL;
-            wpns[2] = WT_BATTLEAXE;
+            wpns[2] = WT_WHAMMER;
+            break;
+
+        case MT_POLTERGEIST:
+            wpns[0] = WT_SPEAR;
+            wpns[1] = WT_SCYTHE;
+            wpns[2] = WT_HALBERD;
             break;
 
         case MT_VAMPIRE:
@@ -888,6 +893,12 @@ monster *monster_new(monster_t type, position pos)
             wpns[0] = WT_LONGSWORD;
             wpns[1] = WT_2SWORD;
             wpns[2] = WT_SWORDSLASHING;
+            break;
+
+        case MT_TOWN_PERSON:
+            wpns[0] = WT_CLUB;
+            wpns[1] = WT_SCYTHE;
+            weapon_count = 2;
             break;
 
         default:

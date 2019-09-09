@@ -63,7 +63,7 @@ struct map;
     MT(MT_ZOMBIE,) \
     MT(MT_ASSASSIN_BUG,) \
     MT(MT_BUGBEAR,) \
-    MT(MT_HELLHOUND,)       /* 20 */ \
+    MT(MT_HELLION,)       /* 20 */ \
     MT(MT_ICE_LIZARD,) \
     /* D5 - D7 */ \
     MT(MT_CENTAUR,) \

@@ -356,7 +356,7 @@ guint trap_disarm(struct player *p)
         /* arrow traps may drop some arrows */
         if (tt == TT_ARROW && chance(34))
         {
-            item *arrows = item_new(IT_AMMO, AMT_ARROW);
+            item *arrows = item_new(IT_AMMO, AMT_WARROW);
             arrows->count = rand_1n(6);
             inv_add(map_ilist_at(cmap, p->pos), arrows);
         }
@@ -376,4 +376,3 @@ guint trap_disarm(struct player *p)
 
     return 0;
 }
-

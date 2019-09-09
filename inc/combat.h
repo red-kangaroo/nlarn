@@ -55,7 +55,7 @@ DECLARE_ENUM(size, SIZE_ENUM)
     ATT(ATT_SLAM,)   /* shambling mound */ \
     ATT(ATT_KICK,)   /* centaur */ \
     ATT(ATT_TOUCH,)  /* vampire, wraith */ \
-    ATT(ATT_BREATH,) /* dragons, hellhound */ \
+    ATT(ATT_BREATH,) /* dragons, hellion */ \
     ATT(ATT_GAZE,)   /* floating eye */ \
 
 DECLARE_ENUM(attack_t, ATTACK_T_ENUM)
