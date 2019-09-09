@@ -155,6 +155,8 @@ void display_init()
     init_pair(DCP_BLACK_BLACK,   COLOR_BLACK,   COLOR_BLACK);
 
     /* these colour pairs are used by dialogues */
+#ifdef OLD_LOOK
+    /* Old look, that is dialogue windows are bright red. */
     init_pair(DCP_WHITE_RED,    COLOR_WHITE,    COLOR_RED);
     init_pair(DCP_RED_RED,      COLOR_RED,      COLOR_RED);
     init_pair(DCP_GREEN_RED,    COLOR_GREEN,    COLOR_RED);
@@ -165,6 +167,26 @@ void display_init()
     init_pair(DCP_BLACK_RED,    COLOR_BLACK,    COLOR_RED);
     init_pair(DCP_BLACK_WHITE,  COLOR_BLACK,    COLOR_WHITE);
     init_pair(DCP_RED_WHITE,    COLOR_RED,      COLOR_WHITE);
+#else
+    /*
+     * New look: dialogue windows have white background, so they still
+     * stand out but no longer grate at your eyes. Hopefully.
+     * Note that I didn't change names of COLOR_PAIR, because I would have to
+     * hunt through code for all of them. It will be confusing but working
+     * for now, but maybe TODO later.
+     * --red_kangaroo
+     */
+     init_pair(DCP_WHITE_RED,    COLOR_WHITE,    COLOR_BLUE);
+     init_pair(DCP_RED_RED,      COLOR_BLUE,     COLOR_BLUE);
+     init_pair(DCP_GREEN_RED,    COLOR_GREEN,    COLOR_BLUE);
+     init_pair(DCP_BLUE_RED,     COLOR_RED,      COLOR_BLUE);
+     init_pair(DCP_YELLOW_RED,   COLOR_YELLOW,   COLOR_BLUE);
+     init_pair(DCP_MAGENTA_RED,  COLOR_MAGENTA,  COLOR_BLUE);
+     init_pair(DCP_CYAN_RED,     COLOR_CYAN,     COLOR_BLUE);
+     init_pair(DCP_BLACK_RED,    COLOR_BLACK,    COLOR_BLUE);
+     init_pair(DCP_BLACK_WHITE,  COLOR_BLACK,    COLOR_WHITE);
+     init_pair(DCP_RED_WHITE,    COLOR_BLUE,     COLOR_WHITE);
+#endif
 
     /* control special keys in application */
     raw();
