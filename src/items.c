@@ -58,24 +58,24 @@ const item_type_data item_data[IT_MAX] =
 
 const item_material_data item_materials[IM_MAX] =
 {
-    /* type           name           adjective   colour       frag */
-    { IM_PAPER,       "paper",       "papier",   WHITE,     20, },
+    /* type           name           adjective   colour     frag */
+    { IM_PAPER,       "paper",       "paper",    WHITE,     25, },
     { IM_CLOTH,       "cloth",       "cloth",    LIGHTGRAY, 15, },
-    { IM_LEATHER,     "leather",     "leathern", BROWN,     10, },
+    { IM_LEATHER,     "leather",     "leather",  BROWN,     10, },
     { IM_WOOD,        "wood",        "wooden",   BROWN,     10, },
-    { IM_BONE,        "bone",        "osseous",  DARKGRAY,  15, },
-    { IM_DRAGON_HIDE, "dragon hide", "scabby",   GREEN,      2, },
-    { IM_LEAD,        "lead",        "leady",    DARKGRAY,  15, },
-    { IM_IRON,        "iron",        "irony",    LIGHTGRAY,  5, },
-    { IM_STEEL,       "steel",       "steely",   WHITE,      1, },
-    { IM_COPPER,      "copper",      "cupreous", BROWN,      8, },
-    { IM_SILVER,      "silver",      "silvery",  LIGHTGRAY,  7, },
-    { IM_GOLD,        "gold",        "golden",   YELLOW,     6, },
+    { IM_BONE,        "bone",        "bone",     DARKGRAY,  15, },
+    { IM_DRAGON_HIDE, "dragon hide", "scaled",   GREEN,      2, },
+    { IM_LEAD,        "lead",        "lead",     DARKGRAY,  10, },
+    { IM_IRON,        "iron",        "iron",     LIGHTGRAY,  2, },
+    { IM_STEEL,       "steel",       "steel",    WHITE,      1, },
+    { IM_COPPER,      "copper",      "copper",   BROWN,      6, },
+    { IM_SILVER,      "silver",      "silver",   LIGHTGRAY,  7, },
+    { IM_GOLD,        "gold",        "golden",   YELLOW,     8, },
     { IM_PLATINUM,    "platinum",    "platinum", WHITE,      3, },
-    { IM_MITHRIL,     "mitril",      "mithrial", LIGHTGRAY,  0, },
-    { IM_GLASS,       "glass",       "vitreous", LIGHTCYAN, 50, },
-    { IM_STONE,       "stone",       "stony",    WHITE,     20, },
-    { IM_GEMSTONE,    "gemstone",    "gemstone", RED,        0, },
+    { IM_MITHRIL,     "mithril",     "mithral",  LIGHTGRAY,  0, },
+    { IM_GLASS,       "glass",       "crystal",  LIGHTCYAN, 20, },
+    { IM_STONE,       "stone",       "stone",    WHITE,     10, },
+    { IM_GEMSTONE,    "gemstone",    "gem",      RED,        0, },
 };
 
 /* functions */
@@ -685,7 +685,12 @@ gchar *item_describe(item *it, gboolean known, gboolean singular, gboolean defin
     {
     case IT_AMULET:
         if (known)
+        {
+          if(it->id == AM_LARN)
+            g_string_append_printf(desc, "Eye of %s", item_desc_get(it, known));
+          else
             g_string_append_printf(desc, "amulet of %s", item_desc_get(it, known));
+        }
         else
             g_string_append_printf(desc, "%s amulet", item_desc_get(it, known));
         break;
@@ -1739,4 +1744,3 @@ static const char *item_desc_get(item *it, int known)
         return "";
     }
 }
-

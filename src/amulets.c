@@ -29,9 +29,9 @@ const amulet_data amulets[AM_MAX] =
     { AM_NEGATE_SPIRIT,       "negate spirit",    ET_SPIRIT_PROTECTION, 5000, },
     { AM_NOTHEFT,             "theft prevention", ET_NOTHEFT,           6000, },
     { AM_DRAGON_SLAYING,      "dragon slaying",   ET_NONE,              6000, },
-    { AM_POWER,               "power",            ET_NONE,              8000, },
+    { AM_POWER,               "spell power",      ET_NONE,              8000, },
     { AM_REFLECTION,          "reflection",       ET_REFLECTION,        8000, },
-    { AM_LARN,                "larn",             ET_INFRAVISION,       9000, },
+    { AM_LARN,                "Larn",             ET_INFRAVISION,       9000, },
 };
 
 static const int amulet_materials[AM_MAX] =
@@ -52,4 +52,3 @@ item_material_t amulet_material(amulet_t amulet_id)
     g_assert(amulet_id < AM_MAX);
     return amulet_materials[nlarn->amulet_material_mapping[amulet_id]];
 }
-
